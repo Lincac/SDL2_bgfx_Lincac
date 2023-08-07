@@ -51,7 +51,7 @@ public:
 		bgfx::ShaderHandle vshader = Shader::loadshader("shader_compile/vs_cube.bin");
 		bgfx::ShaderHandle fshader = Shader::loadshader("shader_compile/fs_cube.bin");
 		program = bgfx::createProgram(vshader, fshader, true  /* destroy shaders when program is destroyed */);
-		mesh = meshLoad("resource/meshes/bunny.bin");
+		mesh = meshLoad("resource/meshes_compile/bunny.bin");
 
 		timeOffset = bx::getHPCounter();
 	}

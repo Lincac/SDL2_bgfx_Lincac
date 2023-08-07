@@ -1,6 +1,6 @@
 # 使用依赖  
-SDL2 --https://www.libsdl.org/  
-bgfx --https://github.com/bkaradzic/bgfx  
+[SDL2](https://www.libsdl.org/)   
+[bgfx](https://github.com/bkaradzic/bgfx)  
 
 # 项目构建  
 SDL2的配置只需要它的include和lib文件就好,记得dll文件要放在项目.exe文件相同目录下--https://github.com/libsdl-org/SDL/releases/download/release-2.28.2/SDL2-devel-2.28.2-VC.zip    
@@ -20,7 +20,23 @@ bxDebug.lib
 bimgDebug.lib  
 bimg_decodeDebug.lib  
 
-# 关于shader编译  
+# about compile
+    *.bmp (input)          Windows Bitmap.
+    *.dds (input, output)  Direct Draw Surface.
+    *.exr (input, output)  OpenEXR.
+    *.gif (input)          Graphics Interchange Format.
+    *.jpg (input)          JPEG Interchange Format.
+    *.hdr (input, output)  Radiance RGBE.
+    *.ktx (input, output)  Khronos Texture.
+    *.png (input, output)  Portable Network Graphics.
+    *.psd (input)          Photoshop Document.
+    *.pvr (input)          PowerVR.
+    *.tga (input)          Truevision TGA.
+
+.\compile.exe shader windows 430 vs_cube fs_cube cube_varying.def
+.\compile.exe geometry bunny.obj
+.\compile.exe texture aerial_rocks_04_diff_2k.jpg aerial_rocks_04_diff_2k.dds
+
 因为bgfx使用的是.bin格式的shader文件，因此我们需要编译对应的版本，不过作者已经给我们提供好了工具，具体文件在也是在lib的目录下，名字叫shadercDebug，可以使用这个exe来对shader文件进行编译，命令如下：  
 shadercDebug.exe -f filename.sc -o filename.bin --platform x --type x --verbose x --profile x --varyingdef varying.def.sc  
 [选项]  
