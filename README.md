@@ -3,6 +3,9 @@
 [bgfx](https://github.com/bkaradzic/bgfx)  
 
 # 项目构建  
+项目下载之后先点击3party.bat，进行bgfx的下载和编译，这里我使用的是vs2022，如果需要改正就打开3party.bat修改版本就好  
+完成之后就可以去完成之后就可以去bgfx\.build\projects\vs2022中打开bgfx.sln,把所有的解决项目生成  
+
 SDL2的配置只需要它的include和lib文件就好,记得dll文件要放在项目.exe文件相同目录下   
 [~(懒人专用)~](https://github.com/libsdl-org/SDL/releases/download/release-2.28.2/SDL2-devel-2.28.2-VC.zip)  
 
