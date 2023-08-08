@@ -4,8 +4,26 @@
 
 # 项目构建  
 项目下载之后先点击3party.bat，进行bgfx的下载和编译，这里我使用的是vs2022，如果需要改正就打开3party.bat修改版本就好  
-完成之后就可以去完成之后就可以去bgfx\.build\projects\vs2022中打开bgfx.sln,把所有的解决项目生成  
-
+完成之后就可以去完成之后就可以去bgfx\.build\projects\vs2022中打开bgfx.sln,把所有的解决项目生成就完成了。  
+在运行的时候会出现一个不支持C++14的报错，点进去把那段代码注释掉就OK了  
+~~~
+#if defined(__cplusplus)
+#	if   __cplusplus < BX_LANGUAGE_CPP14
+#		error "C++14 standard support is required to build."
+#	elif __cplusplus < BX_LANGUAGE_CPP17
+#		define BX_CPP_NAME "C++14"
+#	elif __cplusplus < BX_LANGUAGE_CPP20
+#		define BX_CPP_NAME "C++17"
+#	elif __cplusplus < BX_LANGUAGE_CPP23
+#		define BX_CPP_NAME "C++20"
+#	else
+// See: https://gist.github.com/bkaradzic/2e39896bc7d8c34e042b#orthodox-c
+#		define BX_CPP_NAME "C++WayTooModern"
+#	endif // BX_CPP_NAME
+#else
+#	define BX_CPP_NAME "C++Unknown"
+#endif // defined(__cplusplus)
+~~~
 SDL2的配置只需要它的include和lib文件就好,记得dll文件要放在项目.exe文件相同目录下   
 [~(懒人专用)~](https://github.com/libsdl-org/SDL/releases/download/release-2.28.2/SDL2-devel-2.28.2-VC.zip)  
 
