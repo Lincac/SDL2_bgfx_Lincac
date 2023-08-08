@@ -5,7 +5,7 @@
 # 项目构建  
 项目下载之后先点击3party.bat，进行bgfx的下载和编译，这里我使用的是vs2022，如果需要改正就打开3party.bat修改版本就好  
 完成之后就可以去完成之后就可以去bgfx\.build\projects\vs2022中打开bgfx.sln,把所有的解决项目生成就完成了。  
-在运行的时候会出现一个不支持C++14的报错，点进去把那段代码注释掉就OK了  
+在运行的时候会出现一个不支持C++14的报错，点进去把那段代码注释掉就OK了（如下）  
 ~~~
 #if defined(__cplusplus)
 #	if   __cplusplus < BX_LANGUAGE_CPP14
