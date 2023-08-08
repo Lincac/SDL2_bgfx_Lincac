@@ -60,3 +60,9 @@ bimg_decodeDebug.lib
 * .\compile.exe texture aerial_rocks_04_diff_2k.jpg aerial_rocks_04_diff_2k.dds
 
 每个命令的输入和生成文件都有对应的文件目录，要在对应的文件目录下才能起效果
+
+
+# 项目结构
+主要三个文件APIMain.cpp,Default_Main.cpp,Quad_Main.cpp  
+第一个是使用作者的接口实现的文件，第二个文件是我自己实现的文件，其中我把着色器，纹理加载的工具抽出来了，第三个文件就是如何使用帧缓冲的结构  
+有学过OpenGL的都知道这种API，只要学会顶点绑定，着色器绑定，帧缓冲绑定，所有的api就可以融会贯通了  
