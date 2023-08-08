@@ -35,15 +35,15 @@ struct Mouse
 class Camera
 {
 public:
-	Camera() { reset(); }
+	Camera(bx::Vec3 pos = {0.0f,0.0f,-5.0f }) { reset(pos); }
 
-	void reset()
+	void reset(bx::Vec3 pos = { 0.0f,0.0f,-5.0f })
 	{
 		m_target.curr = bx::InitZero;
 		m_target.dest = bx::InitZero;
 
-		m_pos.curr = { 0.0f, 0.0f, -3.0f };
-		m_pos.dest = { 0.0f, 0.0f, -3.0f };
+		m_pos.curr = pos;
+		m_pos.dest = pos;
 
 		m_orbit[0] = 0.0f;
 		m_orbit[1] = 0.0f;

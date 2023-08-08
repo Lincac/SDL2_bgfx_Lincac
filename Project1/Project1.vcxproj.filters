@@ -9,14 +9,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPP\Main.cpp" />
-    <ClCompile Include="CPP\APIMain.cpp" />
+    <ClCompile Include="CPP\APIMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CPP\Default_Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CPP\Quad_Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Head\Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Head\LoadShader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Head\Cube.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Head\LoadTexture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Head\Quad.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

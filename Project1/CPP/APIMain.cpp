@@ -5,6 +5,7 @@
 #include<SDL2/SDL_syswm.h>
 #include<../Head/Camera.h>
 #include<../Head/LoadShader.h>
+#include<../Head/LoadTexture.h>
 using namespace std;
 
 const int WIDTH = 800;
@@ -50,8 +51,12 @@ public:
 
 		bgfx::ShaderHandle vshader = Shader::loadshader("shader_compile/vs_cube.bin");
 		bgfx::ShaderHandle fshader = Shader::loadshader("shader_compile/fs_cube.bin");
-		program = bgfx::createProgram(vshader, fshader, true  /* destroy shaders when program is destroyed */);
-		mesh = meshLoad("resource/meshes_compile/bunny.bin");
+		program = bgfx::createProgram(vshader, fshader, true );
+
+		mesh = meshLoad("resource/meshes_compile/cube.bin");
+
+		texture = loadTexture("resource/textures_compile/aerial_rocks_04_diff_2k.dds");
+		texture_uniform = bgfx::createUniform("texColor",bgfx::UniformType::Sampler);
 
 		timeOffset = bx::getHPCounter();
 	}
@@ -59,12 +64,16 @@ public:
 	~Model() {
 		meshUnload(mesh);
 		bgfx::destroy(program);
+		bgfx::destroy(texture);
+		bgfx::destroy(texture_uniform);
 		bgfx::shutdown();
 		SDL_DestroyWindow(window);
 	}
 
 	void run(Camera& camera) {
 		bgfx::setViewRect(0, 0, 0,uint16_t(WIDTH), uint16_t(HEIGHT));
+		bgfx::setViewClear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030ff, 1.0f, 0);
+
 		bgfx::touch(0);
 
 		bgfx::setState(0
@@ -74,6 +83,8 @@ public:
 			| BGFX_STATE_CULL_CW
 			| BGFX_STATE_MSAA
 		);
+
+		bgfx::setTexture(0, texture_uniform, texture);
 
 		float view[16];
 		camera.mtxLookAt(view);
@@ -98,6 +109,10 @@ public:
 	SDL_Window* window;
 
 	bgfx::ProgramHandle program;
+
+	bgfx::UniformHandle texture_uniform;
+	bgfx::TextureHandle texture;
+
 	Mesh* mesh;
 };
 

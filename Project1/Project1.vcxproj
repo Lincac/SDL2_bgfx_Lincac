@@ -19,14 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPP\APIMain.cpp" />
-    <ClCompile Include="CPP\Main.cpp">
+    <ClCompile Include="CPP\APIMain.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="CPP\Default_Main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="CPP\Quad_Main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Head\Camera.h" />
+    <ClInclude Include="Head\Cube.h" />
     <ClInclude Include="Head\LoadShader.h" />
+    <ClInclude Include="Head\LoadTexture.h" />
+    <ClInclude Include="Head\Quad.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -7,6 +7,7 @@ SDL2的配置只需要它的include和lib文件就好,记得dll文件要放在�
 [~(懒人专用)~](https://github.com/libsdl-org/SDL/releases/download/release-2.28.2/SDL2-devel-2.28.2-VC.zip)  
 
 bgfx的配置也比较简单,可以直接参考它的网页 [这里](https://bkaradzic.github.io/bgfx/build.html)  
+注意：参数一般使用 --with-examples --with-tools --with-shared-lib 就够了，如果想研究其他的可以使用--help查看对应的参数  
 使用visual studio构建完成之后,我们需要其中的几个include、lib以及作者写的工具，一般只需要下面几个目录就好：  
 bgfx\include  
 bimg\include  
