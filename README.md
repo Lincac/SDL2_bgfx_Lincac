@@ -77,8 +77,9 @@ bimg_decodeDebug.lib
 项目中我自己写了个简易的编辑程序，命令如下：  
 
 * .\compile.exe shader windows 430 vs_cube fs_cube cube_varying.def
+* .\compile.exe shader windows s_5_0 -O 3 vs_cube fs_cube cube_varying.def
 * .\compile.exe geometry bunny.obj
-* .\compile.exe texture aerial_rocks_04_diff_2k.jpg aerial_rocks_04_diff_2k.dds
+* .\compile.exe texture picture.jpg picture.dds
 
 每个命令的输入和生成文件都有对应的文件目录，要在对应的文件目录下才能起效果
 
