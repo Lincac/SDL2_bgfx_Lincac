@@ -76,8 +76,8 @@ bimg_decodeDebug.lib
 
 项目中我自己写了个简易的编辑程序，命令如下：  
 
-* .\compile.exe shader windows 430 vs_cube fs_cube cube_varying.def
-* .\compile.exe shader windows s_5_0 -O 3 vs_cube fs_cube cube_varying.def
+* .\compile.exe shader windows glsl vs_cube fs_cube cube_varying.def
+* .\compile.exe shader windows hlsl vs_cube fs_cube cube_varying.def
 * .\compile.exe geometry bunny.obj
 * .\compile.exe texture picture.jpg picture.dds
 
