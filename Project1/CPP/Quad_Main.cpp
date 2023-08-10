@@ -83,12 +83,14 @@ int main(int, char**) {
 		| BGFX_SAMPLER_V_CLAMP
 		;
 
-	bgfx::TextureHandle color_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::RGBA16F , BGFX_TEXTURE_RT | Flags,NULL);
-	bgfx::TextureHandle depth_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::D32F, BGFX_TEXTURE_RT | Flags,NULL);
+	bgfx::TextureHandle color_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::RGBA16F , BGFX_TEXTURE_RT | Flags,nullptr	);
+	bgfx::TextureHandle test_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::RGBA16F, BGFX_TEXTURE_RT | Flags, nullptr);
+	bgfx::TextureHandle depth_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::D32F, BGFX_TEXTURE_RT | Flags, nullptr);
 
-	bgfx::Attachment attachments[2];
+	bgfx::Attachment attachments[3];
 	attachments[0].init(color_texture);
-	attachments[1].init(depth_texture);
+	attachments[1].init(test_texture);
+	attachments[2].init(depth_texture);
 
 	bgfx::FrameBufferHandle fbo = bgfx::createFrameBuffer(BX_COUNTOF(attachments), attachments, true);
 #pragma endregion

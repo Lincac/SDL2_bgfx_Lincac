@@ -72,8 +72,8 @@ int main(int argc,char** argv){
             vs_command.append(" -o shader_compile\\" + command_list[2].second + ".bin");
             vs_command.append(" --platform " + command_list[0].second);
             vs_command.append(" --type vertex");
-            vs_command.append(" --verbose 0");
-            vs_command.append(" --profile " + command_list[1].second == "glsl" ? "430" : "s_5_0 -O 3");
+            vs_command.append(" --verbose 0 --profile");
+            vs_command.append(strcmp(command_list[1].second.c_str(),"glsl")==0 ? " 430" : " s_5_0 -O 3");
             vs_command.append(" --varyingdef shader\\" + command_list[4].second + ".sc");
             vs_command.append(" -i include\\bgfx\\src -i include\\bgfx\\examples\\common");
             std::cout << vs_command << std::endl;
@@ -83,8 +83,8 @@ int main(int argc,char** argv){
             fs_command.append(" -o shader_compile\\" + command_list[3].second + ".bin");
             fs_command.append(" --platform " + command_list[0].second);
             fs_command.append(" --type fragment");
-            fs_command.append(" --verbose 0");
-            fs_command.append(" --profile " + command_list[1].second == "glsl" ? "430" : "s_5_0 -O 3");
+            fs_command.append(" --verbose 0 --profile");
+            fs_command.append(strcmp(command_list[1].second.c_str(),"glsl")==0 ? " 430" : " s_5_0 -O 3");
             fs_command.append(" --varyingdef shader\\" + command_list[4].second + ".sc");
             fs_command.append(" -i include\\bgfx\\src -i include\\bgfx\\examples\\common");
             std::cout << fs_command << std::endl;
@@ -95,7 +95,6 @@ int main(int argc,char** argv){
             std::cout << "compile shader successfully!!!" << std::endl;
         }
         else std::cout << "can't open file" << std::endl;
-
         break;
     case 2 : 
         file1.open("resource\\textures\\" + command_list[2].second, std::ios::in);
