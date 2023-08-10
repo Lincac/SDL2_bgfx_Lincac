@@ -73,7 +73,7 @@ int main(int argc,char** argv){
             vs_command.append(" --platform " + command_list[0].second);
             vs_command.append(" --type vertex");
             vs_command.append(" --verbose 0");
-            vs_command.append(" --profile " + command_list[1].second);
+            vs_command.append(" --profile " + command_list[1].second == "glsl" ? "430" : "s_5_0 -O 3");
             vs_command.append(" --varyingdef shader\\" + command_list[4].second + ".sc");
             vs_command.append(" -i include\\bgfx\\src -i include\\bgfx\\examples\\common");
             std::cout << vs_command << std::endl;
@@ -84,7 +84,7 @@ int main(int argc,char** argv){
             fs_command.append(" --platform " + command_list[0].second);
             fs_command.append(" --type fragment");
             fs_command.append(" --verbose 0");
-            fs_command.append(" --profile " + command_list[1].second);
+            fs_command.append(" --profile " + command_list[1].second == "glsl" ? "430" : "s_5_0 -O 3");
             fs_command.append(" --varyingdef shader\\" + command_list[4].second + ".sc");
             fs_command.append(" -i include\\bgfx\\src -i include\\bgfx\\examples\\common");
             std::cout << fs_command << std::endl;

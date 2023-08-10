@@ -84,7 +84,7 @@ int main(int, char**) {
 		;
 
 	bgfx::TextureHandle color_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::RGBA16F , BGFX_TEXTURE_RT | Flags,NULL);
-	bgfx::TextureHandle depth_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::D24F, BGFX_TEXTURE_RT | Flags,NULL);
+	bgfx::TextureHandle depth_texture = bgfx::createTexture2D(uint16_t(WIDTH), uint16_t(HEIGHT), false, 1, bgfx::TextureFormat::D32F, BGFX_TEXTURE_RT | Flags,NULL);
 
 	bgfx::Attachment attachments[2];
 	attachments[0].init(color_texture);
@@ -116,7 +116,7 @@ int main(int, char**) {
 		bx::mtxProj(proj, 60.0, float(WIDTH) / float(HEIGHT), 0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
 
 		bgfx::setViewFrameBuffer(id, fbo);
-		bgfx::setViewRect(id, 0, 0, uint16_t(WIDTH), uint16_t(HEIGHT));
+		bgfx::setViewRect(id, 0, 0, uint16_t(WIDTH), uint16_t(HEIGHT)); 
 		bgfx::setViewClear(id, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030ff, 1.0f, 0);
 		bgfx::setViewTransform(id, view, proj);
 
@@ -162,11 +162,7 @@ int main(int, char**) {
 
 		bgfx::setTexture(0, main_uniform, bgfx::getTexture(fbo,0));
 
-		bgfx::setState(0
-			| BGFX_STATE_WRITE_RGB 
-			| BGFX_STATE_WRITE_A 
-			| BGFX_STATE_DEPTH_TEST_ALWAYS
-		);
+		bgfx::setState(0 | BGFX_STATE_WRITE_RGB | BGFX_STATE_WRITE_A );
 
 		bgfx::submit(0, quad_program);
 #pragma endregion
